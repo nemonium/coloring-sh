@@ -18,7 +18,8 @@ done
 #
 for k in "${keywords[@]}"
 do
-  coloring=("${coloring[@]}" "| perl -pe 's/${k}/\033\[1;36m$&\033\[0m/gi' ")
+  [ ${#coloring[@]} -eq 0 ] && coloring="| sed"
+  coloring=("${coloring[@]}" "-e 's/\(${k}\)/\x1b[33m\1\x1b[0m/g'")
 done
 
 # exec
