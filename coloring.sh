@@ -16,10 +16,13 @@ done
 
 # coloring
 #
+colors=(30 31 32 33 34 35 36 37)
 for k in "${keywords[@]}"
 do
+  idx=`expr ${idx:-0} + 1`
+  color=${colors[`expr ${idx} % ${#colors[@]}`]}
   [ ${#coloring[@]} -eq 0 ] && coloring="| sed"
-  coloring=("${coloring[@]}" "-e 's/\(${k}\)/\x1b[33m\1\x1b[0m/g'")
+  coloring=("${coloring[@]}" "-e 's/\(${k}\)/\x1b[1;${color}m\1\x1b[0m/g'")
 done
 
 # exec
