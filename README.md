@@ -9,3 +9,9 @@ Coloring a particular string to tail command.
         -h       : Get help
 
             See the other command manual
+
+## How to use in other commands
+
+- ex) cat command
+
+    alias cat="COLORING_CMD=cat sh coloring.sh"

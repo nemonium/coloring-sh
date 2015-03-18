@@ -27,7 +27,7 @@ done
 
 # exec
 #
-cmd="\tail ${argv[@]} ${coloring[@]}"
+cmd="\${COLORING_CMD:-tail} ${argv[@]} ${coloring[@]}"
 eval "$cmd"
 
 exit 0
